@@ -1,0 +1,18 @@
+.card {
+    display: flex;
+    gap: 30px;
+}
+
+.cardInfo{
+    width: 700px;
+}
+
+.back{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cardContainer{
+    margin-top: 20px;
+}

@@ -1,6 +1,7 @@
 import { MovieList } from 'components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
-import { getTrending } from '../api';
+import { getTrending } from '../../api';
+
 
 export const Home = () => {
   const [items, setItems] = useState([]);
@@ -18,8 +19,11 @@ export const Home = () => {
     
   
     return (
-        <main>
+      <div
+        style={{display: 'flex',
+          flexDirection: 'column',
+        marginTop:20}}>
             <MovieList items={items} />
-      </main>
+      </div>
   )
 };

@@ -1,0 +1,10 @@
+.link {
+  color: black;
+font-size: larger;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}

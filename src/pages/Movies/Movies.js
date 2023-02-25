@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { searchMovies } from '../api'
-import { MovieList } from '../components/MovieList/MovieList'
+import { searchMovies } from '../../api'
+import { MovieList } from '../../components/MovieList/MovieList'
 
 
 
