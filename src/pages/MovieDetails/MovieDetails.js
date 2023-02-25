@@ -1,13 +1,13 @@
 import { getMovieDetails } from 'api';
-import { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useState, useEffect  } from 'react';
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { Suspense } from "react";
 
 export const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(631842);
- 
-    
+ const location = useLocation();
+  const backLink = location.state?.from??"/goit-react-hw-05-movies"
 
   useEffect(() => {
     async function getFilms() {
@@ -31,7 +31,7 @@ export const MovieDetails = () => {
  
   return (
     <div>   
-      
+      <Link to={backLink}>Back</Link>
       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
       <h1>{movie.title} ({date})</h1>
       <p>User score: {score}%</p>
