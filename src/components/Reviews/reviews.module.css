@@ -1,0 +1,14 @@
+.reviewsCard{
+    list-style-type: none;
+    padding: 0;
+    
+}
+
+.authorReview{
+    margin-bottom: 5px;
+}
+
+.author{
+    font-weight: 600;
+    font-style: normal;
+}

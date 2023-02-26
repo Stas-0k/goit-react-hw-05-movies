@@ -30,11 +30,14 @@ export const MovieDetails = () => {
     <div className={css.cardContainer }>
       
       <Link to={backLink} className={css.back}><IoArrowBackCircle size={30 }/>Back</Link>
-      <div className={css.card }>
+      <div className={css.card}>
+        <div>
         <img
+          
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
-        />
+          
+        /> </div>
         <div className={css.cardInfo}>
           <h1>
             {movie.title} ({date})
@@ -47,8 +50,10 @@ export const MovieDetails = () => {
           </p>
         </div>
       </div>
-      <Link to="cast">Cast</Link>
-      <Link to="reviews">Reviews</Link>
+      <div className={css.buttContainer}>
+      <Link to="cast" className={css.castReview}>Cast</Link>
+        <Link to="reviews" className={css.castReview}>Reviews</Link>
+        </div>
       <Suspense fallback={<div>Loading subpage...</div>}>
         <Outlet />
       </Suspense>
