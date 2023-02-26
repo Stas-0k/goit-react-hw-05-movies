@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { searchMovies } from '../../api'
 import { MovieList } from '../../components/MovieList/MovieList'
-import css from './movies.module.css'
 import { useSearchParams } from 'react-router-dom'
 
 
