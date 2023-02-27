@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getTrending } from '../../api';
 
 
-export const Home = () => {
+ const Home = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -22,8 +22,12 @@ export const Home = () => {
       <div
         style={{display: 'flex',
           flexDirection: 'column',
-        marginTop:20}}>
+          marginTop: 20
+        }}>
+        <h1>Trending movies</h1>
             <MovieList items={items} />
       </div>
   )
 };
+
+export default Home

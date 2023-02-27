@@ -2,13 +2,12 @@ import { useState } from 'react';
 import { searchMovies } from '../../api'
 import { MovieList } from '../../components/MovieList/MovieList'
 import { useSearchParams } from 'react-router-dom'
+import css from './movies.module.css'
 
-
-export const Movies = () => {
+const Movies = () => {
 
     const [query, setQuery] = useState('')
-  const [films, setFilms] = useState([])
-  
+  const [films, setFilms] = useState([])  
    const [searchParams, setSearchParams] = useSearchParams();
   const name = searchParams.get("name");
 
@@ -25,13 +24,13 @@ export const Movies = () => {
         const response = await searchMovies(query)
       setFilms(response.results)
       
-        console.log(films)
+        
     }
     
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <input
           value={name }
           onChange={handleChange}
@@ -39,12 +38,16 @@ export const Movies = () => {
           autoComplete="off"
           autoFocus
           placeholder="Search films"
+          
         />
         <button type="submit">Search</button>
           </form>
-          {/* <Link to={}> {films && films.map(({adult})=>adult).join(' ')}</Link> */}
+         
           <MovieList items={films} />
           
     </>
   );
 };
+
+
+export default Movies

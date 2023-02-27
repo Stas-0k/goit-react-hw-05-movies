@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import css from './movie-details.module.css';
 import { IoArrowBackCircle} from 'react-icons/io5'
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(631842);
   const location = useLocation();
@@ -60,3 +60,6 @@ export const MovieDetails = () => {
     </div>
   );
 };
+
+
+export default MovieDetails
