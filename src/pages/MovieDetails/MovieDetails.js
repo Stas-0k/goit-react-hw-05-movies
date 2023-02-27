@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { Suspense } from 'react';
 import css from './movie-details.module.css';
-import { IoArrowBackCircle} from 'react-icons/io5'
+import { IoArrowBackCircle } from 'react-icons/io5'
+
 
 const MovieDetails = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(631842);
+  const [movie, setMovie] = useState([]);
   const location = useLocation();
-  const backLink = location.state?.from ?? '/goit-react-hw-05-movies';
+  const backLink = location.state?.from ?? '/';
 
   useEffect(() => {
     async function getFilms() {
@@ -32,9 +33,9 @@ const MovieDetails = () => {
       <Link to={backLink} className={css.back}><IoArrowBackCircle size={30 }/>Back</Link>
       <div className={css.card}>
         <div>
-        <img
           
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        <img          
+          src={movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : "https://weblinks.ru/wp-content/uploads/2021/07/1-14.jpg"}
           alt={movie.title}
           
         /> </div>

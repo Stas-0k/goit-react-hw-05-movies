@@ -26,7 +26,6 @@ const Movies = () => {
       
         
     }
-    
 
   return (
     <>
