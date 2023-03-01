@@ -1,33 +1,39 @@
 import { MovieList } from 'components/MovieList/MovieList';
 import { useState, useEffect } from 'react';
 import { getTrending } from '../../api';
+import Loader from '../../components/Loader/Loader';
 
-
- const Home = () => {
+const Home = () => {
   const [items, setItems] = useState([]);
+  const [error, setError] = useState('');
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     async function getFilms() {
       try {
         const films = await getTrending();
-        setItems(films.results);
+        if (films.results.length !== 0) {
+          setItems(films.results);
+        } else {
+          throw new Error('Sorry, try again later.');
+        }
       } catch (error) {
-        console.log(error);
+        setError(error);
+      } finally {
+        setLoader(false);
       }
-    } getFilms()
+    }
+    getFilms();
   }, []);
-    
-  
-    return (
-      <div
-        style={{display: 'flex',
-          flexDirection: 'column',
-          marginTop: 20
-        }}>
-        <h1>Trending movies</h1>
-            <MovieList items={items} />
-      </div>
-  )
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', marginTop: 20 }}>
+      <h1>Trending movies</h1>
+      {error && <p>{error.message}</p>}
+      {loader && <Loader />}
+      <MovieList items={items} />
+    </div>
+  );
 };
 
-export default Home
+export default Home;
